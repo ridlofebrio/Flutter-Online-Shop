@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/page/intopage.dart';
+import 'Components/intro.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(myApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class myApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: introPage(),
+      home: introApp(),
     );
   }
 }
