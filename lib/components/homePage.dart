@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klone/Components/cartpage.dart';
 import 'ButtonNavbar.dart';
 import 'cart.dart';
 import 'shop.dart';
@@ -28,7 +29,9 @@ class _homePageState extends State<MyHomePage> {
     return Scaffold(
         backgroundColor: Colors.grey[300],
         bottomNavigationBar: MyButtonNavBar(
-          onTabChange: (index) => navigateBottomBar(index),
+          coba: (index) {
+            navigateBottomBar(index);
+          },
         ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -82,15 +85,15 @@ class _homePageState extends State<MyHomePage> {
                       textColor: Colors.white,
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 25, bottom: 9),
-                    child: ListTile(
-                      leading: Icon(Icons.logout, color: Colors.white),
-                      title: Text('Logout'),
-                      textColor: Colors.white,
-                    ),
-                  )
                 ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 25, bottom: 9),
+                child: ListTile(
+                  leading: Icon(Icons.logout, color: Colors.white),
+                  title: Text('Logout'),
+                  textColor: Colors.white,
+                ),
               )
             ],
           ),

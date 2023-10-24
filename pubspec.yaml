@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
+  provider:
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,11 @@ flutter:
     #   - images/a_dot_ham.jpeg
     - images/logo.png
     - images/GTX1650.jpg
+    - images/air.jpg
+    - images/pngwing.png
+    - images/casing.jpg
+    - images/Threadripper.jpg
+    - images/watercolling.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
