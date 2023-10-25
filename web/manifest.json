@@ -1,6 +1,6 @@
 {
-    "name": "online_shop",
-    "short_name": "online_shop",
+    "name": "klone",
+    "short_name": "klone",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

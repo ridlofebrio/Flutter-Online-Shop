@@ -5,7 +5,6 @@ import 'package:online_shop/components/bottom_navbar.dart';
 import 'package:online_shop/page/cartPage.dart';
 import 'package:online_shop/page/shopPage.dart';
 
-
 class homePage extends StatefulWidget {
   const homePage({super.key});
 
@@ -14,21 +13,17 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends State<homePage> {
+  int _selectedIndex = 0;
+  void navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
-
-int _selectedIndex = 0;
-void navigateBottomBar(int index){
-  setState(() {
-    _selectedIndex = index;
-  });
-}
-
-final List<Widget> _page = [
-  const shopPage(),
-
-  const cartPage(),
-];
-
+  final List<Widget> _page = [
+    const shopPage(),
+    const cartPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -38,61 +33,72 @@ final List<Widget> _page = [
         onTabChange: (index) => navigateBottomBar(index),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Builder(
-        builder: (context) => IconButton(
-          icon: const Icon(Icons.menu,color: Colors.black),
-          onPressed: () {
-            Scaffold.of(context).openDrawer();
-          }
-        
-        ),)
-      ) ,
-    drawer: Drawer(
-      backgroundColor: const Color.fromARGB(255, 94, 94, 94),
-      child: Column(
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              DrawerHeader(child: Image.asset('../lib/images/logo.png', color: Color.fromARGB(255, 255, 255, 255),)),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: Divider(color: Colors.grey,),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: ListTile(
-              leading: Icon(Icons.home,color: Colors.white,),
-              title: Text('Home'),
-              textColor: Colors.white,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 25),
-            child: ListTile(
-              leading: Icon(Icons.info,color: Colors.white,),
-              title: Text('About'),
-              textColor: Colors.white,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 25 , bottom: 9),
-            child: ListTile(
-              leading: Icon(Icons.logout,color: Colors.white,),
-              title: Text('Logout'),
-              textColor: Colors.white,
-            ),
-          )
-            ],
-          )
-        ],
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Builder(
+            builder: (context) => IconButton(
+                icon: const Icon(Icons.menu, color: Colors.black),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                }),
+          )),
+      drawer: Drawer(
+        backgroundColor: const Color.fromARGB(255, 94, 94, 94),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                DrawerHeader(
+                    child: Image.asset(
+                  '../lib/images/logo.png',
+                  color: Color.fromARGB(255, 255, 255, 255),
+                )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Divider(
+                    color: Colors.grey,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    title: Text('Home'),
+                    textColor: Colors.white,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.info,
+                      color: Colors.white,
+                    ),
+                    title: Text('About'),
+                    textColor: Colors.white,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25, bottom: 9),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                    ),
+                    title: Text('Logout'),
+                    textColor: Colors.white,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
-    ),
-
-    body: _page[_selectedIndex],
+      body: _page[_selectedIndex],
     );
   }
 }
-
