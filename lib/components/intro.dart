@@ -1,43 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:online_shop/page/homePage.dart';
+import 'package:klone/Components/homePage.dart';
 
-class introPage extends StatelessWidget {
-  const introPage({super.key});
-
+class introApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: Center(
-            child: Padding(
-          padding: const EdgeInsets.all(0.10),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(0.10),
           child: Column(children: [
-            //Logo
             Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: EdgeInsets.all(25),
               child: Image.asset(
-                'lib/images/logo.png',
+                'images/logo.png',
                 width: 400,
                 height: 300,
               ),
             ),
-
-            const SizedBox(
+            SizedBox(
               height: 40,
             ),
-
-            // Title
             Padding(
-              padding: const EdgeInsets.all(13.10),
+              padding: EdgeInsets.all(13.10),
               child: Text(
-                'More than Just',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+                'More Than Just',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),
-            //Sub Title
             SizedBox(
               height: 80,
               child: Text(
@@ -49,18 +39,17 @@ class introPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            //Start Button
             GestureDetector(
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => homePage()),
+                MaterialPageRoute(builder: (context) => MyHomePage()),
               ),
               child: Container(
                 decoration: BoxDecoration(
                     color: Color.fromARGB(255, 78, 78, 78),
                     borderRadius: BorderRadius.circular(6)),
                 padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-                child: const Text(
+                child: Text(
                   'Shop Now',
                   style: TextStyle(
                     color: Colors.white,
@@ -69,8 +58,10 @@ class introPage extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
           ]),
-        )));
+        ),
+      ),
+    );
   }
 }
